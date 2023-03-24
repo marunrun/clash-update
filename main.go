@@ -12,8 +12,11 @@ func main() {
 	fmt.Println("使用之前建议关闭代理软件，否则测速可能不准确")
 	task.Routines = 600
 	task.InitRandSeed() // 置随机数种子
-	task.Disable = true
+	//task.Disable = true
 	task.IPFile = "./lib/CloudflareSpeedTest/ip.txt"
+	task.TestCount = 35
+
+	//utils.DisableClashProxy()
 
 	// 开始延迟测速
 	pingData := task.NewPing().Run().FilterDelay()
@@ -71,4 +74,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	//utils.ResetMode()
 }

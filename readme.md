@@ -1,20 +1,29 @@
 # clash-update
 
-引用项目 https://github.com/XIU2/CloudflareSpeedTest
-
+> 引用项目 https://github.com/XIU2/CloudflareSpeedTest
+> 
 > 因为`go get github.com/XIU2/CloudflareSpeedTest` 报错所以使用 git submodule 的方式引入这个包。
+> 
+> 参考项目 https://github.com/Loyalsoldier/clash-rules
+> 
 
-利用cloudflare优先ip更新clash配置文件
 
-复制`example.yaml`为`clash.yaml`，修改`clash.yaml`中的`proxies`为你的代理列表。
+----
 
-` cp example.yaml clash.yaml`
+## 使用
 
-测试代理，并替换文件
+注意将`example.yaml`中的`proxies`替换成你自己的配置,运行软件的时候将代理关闭。
+```bash
+git clone --recurse-submodules https://github.com/marunrun/clash-update.git
 
-`go run main.go`
+cd clash-update
 
-注意: 在代码中，我将下载测速关闭了，如果你需要的话，可以自行打开。
+cp example.yaml clash.yaml
+
+go run main.go
+```
+
+
 
 替换好的文件， 你可以在本地跑个nginx，然后托管配置`http://127.0.0.1:7880/clash.yaml`
 
